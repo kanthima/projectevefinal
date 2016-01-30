@@ -29,7 +29,7 @@ public class ResultActivity extends Activity {
     private int RQs = 1;
     private TextView showTimeTextView, showTimeMinus;
     private int timeAdd = 0;
-
+    public String strTodo;
 
 
     @Override
@@ -97,12 +97,31 @@ public class ResultActivity extends Activity {
 
         Log.d("30Jan", "Alarm ==> " + setCalendar.getTime());
 
+        strTodo = findnameNotification();
+
         Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
+
+        intent.putExtra("note", strTodo);
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), myRQS, intent, 0);
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, setCalendar.getTimeInMillis(), pendingIntent);
 
     }   // setAlarm
+
+    private String findnameNotification() {
+
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME, MODE_PRIVATE, null);
+        Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM " + timeTABEL.TABLE_TIME, null);
+        objCursor.moveToFirst();
+        String strTodo = null;
+
+        objCursor.moveToLast();
+        strTodo = objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_NAME));
+        Log.d("eve30", "strTodo ==> " + strTodo);
+
+        return strTodo;
+    }
 
     private void getTime() {
         objCalendar = Calendar.getInstance();
@@ -134,6 +153,9 @@ public class ResultActivity extends Activity {
         objCursor.moveToFirst();
         objCursor.moveToPosition(IDAnInt - 1);
         String[] strAdder = new String[countAnInt];
+
+
+
         String strColumn = null;
 
         //About Alarm
@@ -160,6 +182,9 @@ public class ResultActivity extends Activity {
 
 
         }   // for
+
+
+
         objCursor.close();
 
         //Create ListView

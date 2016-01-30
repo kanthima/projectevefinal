@@ -26,10 +26,15 @@ public class AlarmReceiver extends BroadcastReceiver{
         Intent objIntent = new Intent(context, MainActivity.class);
         PendingIntent objPendingIntent = PendingIntent.getActivity(context, 0, objIntent, 0);
 
+//        ResultActivity objResultActivity = new ResultActivity();
+//        String strTodo = objResultActivity.strTodo;
+
+        String strTodo = intent.getStringExtra("note");
+
         Notification objNotification = new Notification.Builder(context)
                 .setSmallIcon(R.drawable.icon_myaccount)
-                .setContentTitle("ข้อความเตือน")
-                .setContentText("มีภาระกิจที่ต้องทำ")
+                .setContentTitle("Microbial Culture")
+                .setContentText(strTodo)
                 .setAutoCancel(true)
                 .setContentIntent(objPendingIntent)
                 .build();

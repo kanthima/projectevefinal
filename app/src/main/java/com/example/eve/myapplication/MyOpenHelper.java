@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class MyOpenHelper extends SQLiteOpenHelper{
    //Explicit
-    private static final String DATABASE_NAME ="my_time.db";
+    public static final String DATABASE_NAME ="my_time.db";
     private static final int DATABASE_VERSION=1;
     private static final String CREATE_TABLE = "create table timeTABLE (_id integer primary key,"+"" +
             "name text,date text,count text,data text,Count1 text, Count2 text, Count3 text, Count4 text," +
