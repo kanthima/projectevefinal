@@ -11,13 +11,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.view.View.OnClickListener;
-
 
 import java.util.Calendar;
 
@@ -90,7 +87,7 @@ public class ResultActivity extends Activity {
             showTimeTextView.setText(Integer.toString(hourOfDay));
             showTimeMinus.setText(Integer.toString(minute));
 
-            setAlarm(setCalendar);
+            //setAlarm(setCalendar);
 
         }   // event
     };
@@ -104,7 +101,7 @@ public class ResultActivity extends Activity {
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, setCalendar.getTimeInMillis(), pendingIntent);
 
-    }
+    }   // setAlarm
 
     private void getTime() {
         objCalendar = Calendar.getInstance();
@@ -126,8 +123,8 @@ public class ResultActivity extends Activity {
     public void clickCalculate(View view) {
 
 
-        String strHr = showTimeTextView.getText().toString().trim();
-        String strMin = showTimeMinus.getText().toString().trim();
+        String strHr = showTimeTextView.getText().toString().trim();    // Get Hr
+        String strMin = showTimeMinus.getText().toString().trim();      // Get Min
 
         int intStartTime = Integer.parseInt(strHr);
 
@@ -138,19 +135,29 @@ public class ResultActivity extends Activity {
         String[] strAdder = new String[countAnInt];
         String strColumn = null;
 
+        //About Alarm
+        int[] intTimeAlarmHr = new int[countAnInt];
+
         String[] resultStrings = new String[countAnInt];
         for (int i=0;i<resultStrings.length;i++) {
 
             strColumn = "Count" + Integer.toString(i + 1);
             strAdder[i] = objCursor.getString(objCursor.getColumnIndex(strColumn));
 
+
+            intTimeAlarmHr[i] = intStartTime + Integer.parseInt(strAdder[i]);
+            Log.d("30Jan", "intTimeAlarmHr[" + i + "] = " + intTimeAlarmHr[i]);
+
+            calculateTimeAlarm(intTimeAlarmHr[i], Integer.parseInt(strMin));
+
+
             resultStrings[i] = "ครั้งที่ " + Integer.toString(i + 1) + " ==> " +
                     Integer.toString(intStartTime + Integer.parseInt(strAdder[i])) + ":" + strMin;
             intStartTime = intStartTime + Integer.parseInt(strAdder[i]);
 
 
-
         }   // for
+        objCursor.close();
 
         //Create ListView
         ResultAdapter objResultAdapter = new ResultAdapter(ResultActivity.this, resultStrings);
@@ -161,7 +168,10 @@ public class ResultActivity extends Activity {
 
     }   // clickCalculate
 
+    private void calculateTimeAlarm(int intTimeAlarmHr, int intMinus) {
 
+        Log.d("30Jan", "Hr = " + intTimeAlarmHr + " " + "minus =" + intMinus);
+    }//calculateTimeAlram
 
 
     private void receiveFormIntent() {
