@@ -1,5 +1,8 @@
 package com.example.eve.myapplication;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +21,21 @@ public class AlarmReceiver extends BroadcastReceiver{
 
         MediaPlayer objMediaPlayer = MediaPlayer.create(context, R.raw.intro_start_horse);
         objMediaPlayer.start();
+
+
+        Intent objIntent = new Intent(context, MainActivity.class);
+        PendingIntent objPendingIntent = PendingIntent.getActivity(context, 0, objIntent, 0);
+
+        Notification objNotification = new Notification.Builder(context)
+                .setSmallIcon(R.drawable.icon_myaccount)
+                .setContentTitle("ข้อความเตือน")
+                .setContentText("มีภาระกิจที่ต้องทำ")
+                .setAutoCancel(true)
+                .setContentIntent(objPendingIntent)
+                .build();
+
+        NotificationManager objNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        objNotificationManager.notify(1000, objNotification);
 
 
 
