@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
     }//onCreate
 
+    public void clickMyCalender (View view) {
+        //startActivity(new Intent(MainActivity.this, CalandaActivity.class));
+        Intent objIntent = new Intent(MainActivity.this, CalandaActivity.class);
+        objIntent.putExtra("Status", false);
+        startActivity(objIntent);
+    }
+
 
 
     public void clickHistory(View view) {

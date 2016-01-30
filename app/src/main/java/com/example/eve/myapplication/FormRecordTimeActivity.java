@@ -77,8 +77,12 @@ public class FormRecordTimeActivity extends Activity {
 
 
                 //Intent to CalendaActivity
-                startActivity(new Intent(FormRecordTimeActivity.this, CalandaActivity.class));
-            }
+               // startActivity(new Intent(FormRecordTimeActivity.this, CalandaActivity.class));
+                Intent objIntent = new Intent(FormRecordTimeActivity.this, CalandaActivity.class);
+                objIntent.putExtra("Status", true);
+                startActivity(objIntent);
+
+            }//event
         });
         objAlert.show();
     }//confirmData

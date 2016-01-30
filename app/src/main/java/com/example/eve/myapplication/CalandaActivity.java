@@ -33,6 +33,7 @@ public class CalandaActivity extends Activity implements OnClickListener
     private GridCellAdapter adapter;
     private Calendar _calendar;
     private int month, year;
+    private boolean statusABoolean ;
 
     private void getRequestParameters()
     {
@@ -56,6 +57,8 @@ public class CalandaActivity extends Activity implements OnClickListener
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        statusABoolean= getIntent().getBooleanExtra("Status", false);
 
         _calendar = Calendar.getInstance(Locale.getDefault());
         month = _calendar.get(Calendar.MONTH);
@@ -286,12 +289,17 @@ public class CalandaActivity extends Activity implements OnClickListener
         {
             String date_month_year = (String) view.getTag();
             Toast.makeText(getApplicationContext(), date_month_year, Toast.LENGTH_SHORT).show();
+            if (statusABoolean) {
 
-            //Intent to DetailDayActivity
+                //Intent to DetailDayActivity ==>true
+                Intent objIntent = new Intent(CalandaActivity.this, DetaildayActivity.class);
+                objIntent.putExtra("Date", date_month_year);
+                startActivity(objIntent);
 
-            Intent objIntent = new Intent(CalandaActivity.this, DetaildayActivity.class);
-            objIntent.putExtra("Date", date_month_year);
-            startActivity(objIntent);
+            } else {
+
+                // ===> false
+            }
 
         }//เมื่อคลิกที่วันที่ จะทำงานที่นี่
     }

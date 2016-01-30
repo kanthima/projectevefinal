@@ -158,4 +158,31 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignStart="@+id/textView3" />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton8"
+            android:onClick="clickMyCalender"
+            android:src="@drawable/calendar70"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calender"
+            android:id="@+id/textView23"
+            android:textColor="#c8c8c8"
+            android:textSize="25dp"
+            android:layout_below="@+id/imageButton5"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
 </RelativeLayout>
