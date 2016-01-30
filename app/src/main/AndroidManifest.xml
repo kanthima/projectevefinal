@@ -52,6 +52,10 @@
         </activity>
         <activity android:name=".History2Activity" >
         </activity>
+
+        <receiver android:name=".AlarmReceiver" android:process=":remote"/>
+
+
     </application>
 
 </manifest>

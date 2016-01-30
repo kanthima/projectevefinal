@@ -26,8 +26,9 @@ public class ResultActivity extends Activity {
     private Calendar objCalendar;
     private TimePicker setTimePicker;
     private TimePickerDialog objTimePickerDialog;
-    private static final int RQS_1 = 1;
+    private int RQs = 1;
     private TextView showTimeTextView, showTimeMinus;
+    private int timeAdd = 0;
 
 
 
@@ -78,7 +79,7 @@ public class ResultActivity extends Activity {
             setCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
             setCalendar.set(Calendar.MINUTE, minute);
             setCalendar.set(Calendar.SECOND, 0);
-            setCalendar.set(Calendar.MILLISECOND, 0);
+
 
             if (setCalendar.compareTo(nowCalendar) <= 0 ) {
                 setCalendar.add(Calendar.DATE, 1);
@@ -92,12 +93,12 @@ public class ResultActivity extends Activity {
         }   // event
     };
 
-    private void setAlarm(Calendar setCalendar) {
+    private void setAlarm(Calendar setCalendar, int myRQS) {
 
-        Log.d("eve1", "Alame ==> " + setCalendar.getTime());
+        Log.d("30Jan", "Alarm ==> " + setCalendar.getTime());
 
         Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), myRQS, intent, 0);
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, setCalendar.getTimeInMillis(), pendingIntent);
 
@@ -148,7 +149,9 @@ public class ResultActivity extends Activity {
             intTimeAlarmHr[i] = intStartTime + Integer.parseInt(strAdder[i]);
             Log.d("30Jan", "intTimeAlarmHr[" + i + "] = " + intTimeAlarmHr[i]);
 
-            calculateTimeAlarm(intTimeAlarmHr[i], Integer.parseInt(strMin));
+            timeAdd = timeAdd + Integer.parseInt(strAdder[i]);
+
+            calulateTimeAlarm(timeAdd, Integer.parseInt(strMin));
 
 
             resultStrings[i] = "ครั้งที่ " + Integer.toString(i + 1) + " ==> " +
@@ -168,10 +171,33 @@ public class ResultActivity extends Activity {
 
     }   // clickCalculate
 
-    private void calculateTimeAlarm(int intTimeAlarmHr, int intMinus) {
+    private void calulateTimeAlarm(int intAdd, int intMinus) {
 
-        Log.d("30Jan", "Hr = " + intTimeAlarmHr + " " + "minus =" + intMinus);
-    }//calculateTimeAlram
+        Calendar objCalendar = Calendar.getInstance();
+        Calendar setCalendar = (Calendar) objCalendar.clone();
+
+        String strMinnute = showTimeMinus.getText().toString();
+        int intMinnute = Integer.parseInt(strMinnute);
+
+        int intCurrentHr = objCalendar.get(Calendar.HOUR_OF_DAY);
+
+
+        //timeAdd = timeAdd + intAdd;
+
+
+        setCalendar.set(Calendar.HOUR_OF_DAY, intCurrentHr + intAdd);
+        setCalendar.set(Calendar.MINUTE, intMinnute );
+        setCalendar.set(Calendar.SECOND, 0);
+
+        Log.d("30Jan", "Time Test = " + setCalendar.getTime());
+
+        RQs += 1;
+
+        setAlarm(setCalendar, RQs);
+
+
+
+    }   // calulateTimeAlarm
 
 
     private void receiveFormIntent() {
@@ -189,7 +215,7 @@ public class ResultActivity extends Activity {
 
 
 
-        Intent objIntent = new Intent(ResultActivity.this, MainActivity.class);
-        startActivity(objIntent);
+//        Intent objIntent = new Intent(ResultActivity.this, MainActivity.class);
+//        startActivity(objIntent);
     }
 }//main class
