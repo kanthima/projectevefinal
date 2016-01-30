@@ -120,6 +120,8 @@ public class ResultActivity extends Activity {
         strTodo = objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_NAME));
         Log.d("eve30", "strTodo ==> " + strTodo);
 
+        objCursor.close();
+
         return strTodo;
     }
 
@@ -236,9 +238,12 @@ public class ResultActivity extends Activity {
 
     public void clickComplete(View view) {
 
+        String strHr = showTimeTextView.getText().toString();
+        String strMin = showTimeMinus.getText().toString();
 
-
-
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME, MODE_PRIVATE, null);
+        objSqLiteDatabase.execSQL("UPDATE timeTABLE SET StartHr" + "='" + strHr + "' WHERE _id=" + IDAnInt);
+        objSqLiteDatabase.execSQL("UPDATE timeTABLE SET StartMin" + "='" + strMin + "' WHERE _id=" + IDAnInt);
 
 //        Intent objIntent = new Intent(ResultActivity.this, MainActivity.class);
 //        startActivity(objIntent);
