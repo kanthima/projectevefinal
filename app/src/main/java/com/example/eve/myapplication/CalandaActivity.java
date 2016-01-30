@@ -289,17 +289,12 @@ public class CalandaActivity extends Activity implements OnClickListener
         {
             String date_month_year = (String) view.getTag();
             Toast.makeText(getApplicationContext(), date_month_year, Toast.LENGTH_SHORT).show();
-            if (statusABoolean) {
+            //Intent to DetailDayActivity ==>true
+            Intent objIntent = new Intent(CalandaActivity.this, DetaildayActivity.class);
+            objIntent.putExtra("Date", date_month_year);
+            objIntent.putExtra("Status", statusABoolean);
 
-                //Intent to DetailDayActivity ==>true
-                Intent objIntent = new Intent(CalandaActivity.this, DetaildayActivity.class);
-                objIntent.putExtra("Date", date_month_year);
-                startActivity(objIntent);
-
-            } else {
-
-                // ===> false
-            }
+            startActivity(objIntent);
 
         }//เมื่อคลิกที่วันที่ จะทำงานที่นี่
     }

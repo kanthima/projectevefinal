@@ -25,11 +25,14 @@ public class DetaildayActivity extends AppCompatActivity {
     private String[] strCount = null;
     private EditText objEditText;
     private EditText[] countEditTexts;
+    private boolean statusABoolean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailday);
+
+        statusABoolean = getIntent().getBooleanExtra("Status", false);//false == from mainActivity
 
         //BindWidget
         bindWidter();
@@ -62,16 +65,29 @@ public class DetaildayActivity extends AppCompatActivity {
 
             NameAdapter objNameAdapter = new NameAdapter(strCount, DetaildayActivity.this, strName);
             dateListView.setAdapter(objNameAdapter);
+
+            //**************************************************
+            //Get Active When Click Listview
+
+            //**************************************************
+
+
             dateListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                    if (statusABoolean) {
+
+                        //showMyDialog(strName[i],strCount[i]);
+
+                        intentToSaveHr(strName[i], strCount[i], i + 1);
+                    } else {
+
+                        //show detail
+                    }
 
 
-                    //showMyDialog(strName[i],strCount[i]);
-
-                    intentToSaveHr(strName[i], strCount[i], i + 1);
                 }
-            });
+            });//event
 
 
         } catch (Exception e) {
