@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:baselineAligned="false"
+    android:background="#64ffffff">
+
+    <ImageView
+        android:layout_width="92dp"
+        android:layout_height="75dp"
+        android:id="@+id/imvName"
+        android:src="@drawable/book135" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="261dp"
+        android:layout_height="95dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtReName"
+            android:textSize="25dp"
+            android:textColor="#030303"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtRecount"
+            android:textSize="20dp"
+            android:textColor="#040404" />
+
+    </LinearLayout>
+
+</LinearLayout>

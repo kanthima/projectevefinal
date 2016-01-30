@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        tools:context="com.example.eve.myapplication.ReportActivity"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@drawable/bg6" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/listView3" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REPORT"
+                android:id="@+id/textView19"
+                android:textColor="#ffffff"
+                android:textSize="25dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView20"
+                android:textSize="20dp"
+                android:textColor="#c8c8c8"
+                android:layout_centerHorizontal="true"
+                android:text="รายงาน"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="342dp"
+            android:layout_height="420dp"
+            android:id="@+id/listView3"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/linearLayout7" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/linearLayout7" >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="BACK"
+                android:onClick="clickBACK"
+                android:id="@+id/button13"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/listView3"
+                android:layout_alignStart="@+id/listView3" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

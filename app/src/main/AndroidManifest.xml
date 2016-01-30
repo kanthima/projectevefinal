@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.eve.myapplication" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/bg9"
+        android:label="Microbial Culture"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="My Table" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FormRecordTimeActivity"
+            android:label="@string/title_activity_form_record_time"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".History"
+            android:label="@string/title_activity_history"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".EditSQLiteActivity"
+            android:label="@string/title_activity_edit_sqlite" >
+        </activity>
+        <activity android:name=".CalandaActivity" >
+        </activity>
+        <activity android:name=".DetaildayActivity" >
+        </activity>
+        <activity android:name=".SaveHrActivity" >
+        </activity>
+        <activity android:name=".ResultActivity" >
+        </activity>
+        <activity android:name=".ReportActivity" >
+        </activity>
+        <activity android:name=".SaveToReportActivity" >
+        </activity>
+        <activity android:name=".Detail2Activity" >
+        </activity>
+        <activity android:name=".NewCalenderActivity" >
+        </activity>
+        <activity android:name=".SaveTimeActivity" >
+        </activity>
+        <activity android:name=".ShowReportActivity" >
+        </activity>
+        <activity android:name=".History2Activity" >
+        </activity>
+    </application>
+
+</manifest>

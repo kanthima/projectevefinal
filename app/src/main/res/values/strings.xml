@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_form_record_time">FormRecordTimeActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_form_count">FormCount</string>
+    <string name="title_activity_history">History</string>
+
+    <string name="title_activity_list_delete">ListDeleteActivity</string>
+         <string-array name="CmdMenu" >
+             <item>Edit</item>
+             <item>Delete</item>
+         </string-array>
+    <string name="title_activity_column">column</string>
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="title_activity_edit_sqlite">EditSQLiteActivity</string>
+    <string name="edit">Edit You SQLite</string>
+
+    <string name="save_hr">จำนวนชั่วโมง</string>
+</resources>
