@@ -83,6 +83,9 @@ public class DetaildayActivity extends AppCompatActivity {
                     } else {
 
                         //show detail
+                        Intent objIntent = new Intent((DetaildayActivity.this), ShowDetailActivity.class);
+                        startActivity(objIntent);
+
                     }
 
 
