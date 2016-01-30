@@ -18,6 +18,8 @@ public class timeTABEL {
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME="name";
     public static final String COLUMN_DATE = "date";
+    public static final String COLUMN_HR = "StartHr";
+    public static final String COLUMN_MIN = "StartMin";
     public static final String COLUMN_COUNT = "count";
     public static final String COLUMN_DATA = "data";
     public static final String COLUMN_RESULTS = "Results";
