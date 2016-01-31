@@ -17,10 +17,10 @@ public class MyOpenHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME ="my_time.db";
     private static final int DATABASE_VERSION=1;
     private static final String CREATE_TABLE = "create table timeTABLE (_id integer primary key,"+"" +
-            "name text,date text,StartHr text,StartMin text,count text,data text,Count1 text, Count2 text, Count3 text, Count4 text," +
+            "name text,date text,StartHr text,StartMin text,count text,data text,Results text,Count1 text, Count2 text, Count3 text, Count4 text," +
             " Count5 text, Count6 text, Count7 text, Count8 text, Count9 text, Count10 text, Count11 text," +
             " Count12 text, Count13 text, Count14 text, Count15 text, Count16 text, Count17 text, Count18 text," +
-            " Count19 text, Count20 text,Results text,Time1 text,Time2 text,Time3 text,Time4 text,Time5 text);";
+            " Count19 text, Count20 text,Time1 text,Time2 text,Time3 text,Time4 text,Time5 text);";
 
 
 

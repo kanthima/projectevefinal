@@ -51,6 +51,8 @@ public class History extends ListActivity {
           final String strDate = objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_DATE));
           final int intCount = objCursor.getInt(objCursor.getColumnIndex(timeTABEL.COLUMN_COUNT));
           final String strData = objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_DATA));
+        final String strResults = objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_RESULTS));
+
 
 
         // shiw Alert Dialog
@@ -59,7 +61,7 @@ public class History extends ListActivity {
           objAlert.setIcon(R.drawable.history);
          objAlert.setTitle("You Name = " + strName);
          objAlert.setMessage("Date = " + strDate + "\n" + "Your Count = " + Integer.toString(intCount) +
-                        "\n" + "Your Data =" + strData );
+                        "\n" + "Your Detail =" + strData +"\n"+"Your Results =" + strResults);
          objAlert.setCancelable(false);
           objAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
@@ -70,7 +72,7 @@ public class History extends ListActivity {
 
             }
         });
-            objAlert.setNegativeButton("Edit SQLite", new DialogInterface.OnClickListener() {
+            objAlert.setNegativeButton("แก้ไขข้อมูล", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -81,6 +83,8 @@ public class History extends ListActivity {
                 objIntent.putExtra("date",strDate);
                 objIntent.putExtra("count",Integer.toString(intCount));
                 objIntent.putExtra("data",strData);
+                objIntent.putExtra("Results", strResults);
+
 
                  startActivity(objIntent);
             }//event

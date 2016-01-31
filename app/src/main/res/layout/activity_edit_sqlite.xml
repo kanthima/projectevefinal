@@ -50,7 +50,17 @@
         <EditText
             android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:id="@+id/edtDataED"
+            android:id="@+id/edtDataEDA"
+            android:lines="3"
+            android:gravity="top"
+            android:layout_alignTop="@+id/button9"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtResultsED"
             android:lines="3"
             android:gravity="top"
             android:layout_alignTop="@+id/button9"

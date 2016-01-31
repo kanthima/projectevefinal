@@ -16,8 +16,8 @@ import android.widget.Toast;
 public class EditSQLiteActivity extends AppCompatActivity {
 
     //Explicit
-    private EditText nameEditText,dateEditText,countEditText,dataEditText;
-    private  String nameString,dateString,countString,dataString,resultsString;
+    private EditText nameEditText,dateEditText,countEditText,detailEditText,resultsEditText;
+    private  String nameString,dateString,countString,detailString,resultsString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,14 @@ public class EditSQLiteActivity extends AppCompatActivity {
         countString= getIntent().getStringExtra("count");
         countEditText.setText(countString);
 
-        dataString = getIntent().getStringExtra("data");
-        dataEditText.setText(dataString);
+        detailString = getIntent().getStringExtra("data");
+        detailEditText.setText(detailString);
+
+
+        resultsString = getIntent().getStringExtra("Results");
+        resultsEditText.setText(resultsString);
+
+
     }
 
     public void clickUpdateSQLite(View view){
@@ -64,7 +70,7 @@ public class EditSQLiteActivity extends AppCompatActivity {
     private void updateSQLite() {
 
         timeTABEL objTimeTABEL = new timeTABEL(this);
-        objTimeTABEL.addNewValueToSQLite(nameString, dateString, Integer.parseInt(countString), dataString,resultsString);
+        objTimeTABEL.addNewValueToSQLite(nameString, dateString, Integer.parseInt(countString), detailString,resultsString);
 
         //My Dialog
 
@@ -78,7 +84,9 @@ public class EditSQLiteActivity extends AppCompatActivity {
         nameString = nameEditText.getText().toString().trim();
         dateString = dateEditText.getText().toString().trim();
         countString = countEditText.getText().toString().trim();
-        dataString = dataEditText.getText().toString().trim();
+        detailString = detailEditText.getText().toString().trim();
+        resultsString = resultsEditText.getText().toString().trim();
+
 
     }
 
@@ -100,7 +108,8 @@ public class EditSQLiteActivity extends AppCompatActivity {
         nameEditText = (EditText) findViewById(R.id.edtNameED);
         dateEditText = (EditText) findViewById(R.id.edtDateED);
         countEditText = (EditText) findViewById(R.id.edtCountED);
-        dataEditText = (EditText) findViewById(R.id.edtDataED);
+        detailEditText = (EditText) findViewById(R.id.edtDataEDA);
+        resultsEditText = (EditText) findViewById(R.id.edtResultsED);
     }
 
     public void clickBackEdit(View view) {

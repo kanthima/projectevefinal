@@ -73,7 +73,7 @@ public class timeTABEL {
     public  Cursor readAllData(){
 
     Cursor objCursor = readSQLite.query(TABLE_TIME, new String[]{COLUMN_ID, COLUMN_NAME,
-            COLUMN_DATE, COLUMN_COUNT, COLUMN_DATA,}, null, null, null, null, null);
+            COLUMN_DATE, COLUMN_COUNT, COLUMN_DATA,COLUMN_RESULTS}, null, null, null, null, null);
     if (objCursor != null){
         objCursor.moveToFirst();
     }
