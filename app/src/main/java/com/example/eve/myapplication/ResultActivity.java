@@ -245,7 +245,7 @@ public class ResultActivity extends Activity {
         objSqLiteDatabase.execSQL("UPDATE timeTABLE SET StartHr" + "='" + strHr + "' WHERE _id=" + IDAnInt);
         objSqLiteDatabase.execSQL("UPDATE timeTABLE SET StartMin" + "='" + strMin + "' WHERE _id=" + IDAnInt);
 
-//        Intent objIntent = new Intent(ResultActivity.this, MainActivity.class);
-//        startActivity(objIntent);
+       Intent objIntent = new Intent(ResultActivity.this, MainActivity.class);
+       startActivity(objIntent);
     }
 }//main class

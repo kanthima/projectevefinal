@@ -75,15 +75,17 @@ public class DetaildayActivity extends AppCompatActivity {
             dateListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                    int intID = findIDbyPosition(i); // ค้นหา ID
                     if (statusABoolean) {
 
-                        //showMyDialog(strName[i],strCount[i]);
+                        //มาจากปกติ add Data มา
+                        intentToSaveHr(strName[i], strCount[i], intID);
 
-                        intentToSaveHr(strName[i], strCount[i], i + 1);
                     } else {
 
-                        //show detail
-                        Intent objIntent = new Intent((DetaildayActivity.this), ShowDetailActivity.class);
+                        //Show Detail มาจากการคลิก MyCalendar
+                        Intent objIntent = new Intent(DetaildayActivity.this, ShowDetailActivity.class);
+                        objIntent.putExtra("ID", intID);
                         startActivity(objIntent);
 
                     }
@@ -98,6 +100,21 @@ public class DetaildayActivity extends AppCompatActivity {
         }
 
     }//Create List Dailyplan
+
+    private int findIDbyPosition(int i) {
+        int intID = 1;
+        String tag = "masterEVE";
+
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
+                MODE_PRIVATE, null);
+        Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM timeTABLE WHERE date='" + strDate + "'", null);
+        objCursor.moveToFirst();
+        objCursor.moveToPosition(i);
+        Log.d(tag, "Position = " + i);
+        Log.d(tag, "ID = " + objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_ID)));
+
+        return Integer.parseInt(objCursor.getString(objCursor.getColumnIndex(timeTABEL.COLUMN_ID)));
+    }
 
     private void intentToSaveHr(String strName, String strCount, int intID) {
 
