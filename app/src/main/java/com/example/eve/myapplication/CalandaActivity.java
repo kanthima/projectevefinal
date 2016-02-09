@@ -276,10 +276,10 @@ public class CalandaActivity extends Activity implements OnClickListener
             {
                 gridcell.setTextColor(Color.WHITE);
             }
-            if (position == currentDayOfMonth)
-            {
-                gridcell.setTextColor(Color.BLUE);
-            }
+            //if (position == currentDayOfMonth)
+            //{
+              //  gridcell.setTextColor(Color.BLUE);
+            //}
 
             return row;
         }
