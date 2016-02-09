@@ -27,7 +27,6 @@ import android.widget.Toast;
 
 public class ReportActivity extends AppCompatActivity {
 
-
     private TextView dateTextView;
     private ListView dateListView;
     private String strDate, TAG = "eve";
