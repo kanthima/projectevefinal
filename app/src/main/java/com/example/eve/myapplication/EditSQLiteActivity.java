@@ -89,19 +89,18 @@ public class EditSQLiteActivity extends AppCompatActivity {
 
 
     }
-
     private void deleteOnData() {
 
         int intID = getIntent().getIntExtra("id",0);
-        if (intID != 0) {
+    if (intID != 0) {
 
-            SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase("my_time.db",MODE_PRIVATE,null);
-            Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM timeTABLE",null);
-            objSqLiteDatabase.delete("timeTABLE","_id"+"="+intID,null);
-            Log.d("eve","Delete id = "+Integer.toString(intID));
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase("my_time.db",MODE_PRIVATE,null);
+        Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM timeTABLE",null);
+        objSqLiteDatabase.delete("timeTABLE","_id"+"="+intID,null);
+        Log.d("eve","Delete id = "+Integer.toString(intID));
 
-        }
     }
+}
 
     private void bindWidget() {
 

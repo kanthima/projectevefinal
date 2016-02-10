@@ -53,6 +53,10 @@ public class ShowDetailActivity extends AppCompatActivity {
 
             intAnswerHr[i] = intStartTime;
 
+            if (intAnswerHr[i]> 24) {
+                intAnswerHr[i] = intAnswerHr[i] - 24;
+                          }
+
             Log.d(tag, "showHr = " + intAnswerHr[i]);
 
             // Get นาที

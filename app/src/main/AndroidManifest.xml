@@ -59,6 +59,8 @@
 
         <activity android:name=".ShowDetailActivity" >
         </activity>
+        <activity android:name=".DeleteActivity" >
+        </activity>
     </application>
 
 </manifest>

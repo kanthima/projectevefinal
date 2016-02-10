@@ -173,13 +173,19 @@ public class ResultActivity extends Activity {
             intTimeAlarmHr[i] = intStartTime + Integer.parseInt(strAdder[i]);
             Log.d("30Jan", "intTimeAlarmHr[" + i + "] = " + intTimeAlarmHr[i]);
 
+            if (intTimeAlarmHr[i] > 24) {
+                intTimeAlarmHr[i] = intTimeAlarmHr[i] - 24;
+            }   // if
+
+
             timeAdd = timeAdd + Integer.parseInt(strAdder[i]);
 
             calulateTimeAlarm(timeAdd, Integer.parseInt(strMin));
 
 
             resultStrings[i] = "ครั้งที่ " + Integer.toString(i + 1) + " ==> " +
-                    Integer.toString(intStartTime + Integer.parseInt(strAdder[i])) + ":" + strMin;
+                    Integer.toString(intTimeAlarmHr[i]) + ":" + strMin;
+
             intStartTime = intStartTime + Integer.parseInt(strAdder[i]);
 
 
